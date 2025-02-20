@@ -1,2 +1,21 @@
-- name: Repo Visualizer
-  uses: githubocto/repo-visualizer@0.9.1
+name: Visualizer1
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  visualize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Visualizer1
+        id: make_diagram
+        uses: githubocto/repo-visualizer@0.9.1
+        with:
+          output_file: "math_DRL_AT.svg"
+          artifact_name: "DRL_AT"
